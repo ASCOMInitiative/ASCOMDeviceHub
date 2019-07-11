@@ -11,7 +11,6 @@
 AppID={{94c74c75-8747-48e2-9100-736565caf056}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-;AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher=Rick Burke <astroman133@gmail.com>
 AppPublisherURL=mailto:astroman133@gmail.com
 AppSupportURL=https://ascomtalk.groups.io
@@ -30,7 +29,7 @@ WizardImageFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\In
 LicenseFile="C:\Program Files (x86)\ASCOM\Platform 6 Developer Components\Installer Generator\Resources\CreativeCommons.txt"
 ; {cf}\ASCOM\Uninstall\Telescope folder created by Platform, always
 UninstallFilesDir="{cf}\ASCOM\Uninstall\Telescope\{#MyDestSubdirName}"
-SourceDir="D:\My Projects\Visual Studio 2019\DeviceHub\DeviceHub\bin\Release"
+SourceDir="D:\My Projects\Visual Studio 2019\ASCOMDeviceHub\DeviceHub\bin\Release"
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -47,7 +46,7 @@ Source: "ASCOM.DeviceHub.Dome.dll";       DestDir: "{app}\{#MyDestSubdirName}"; 
 Source: "ASCOM.DeviceHub.Focuser.dll";    DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 Source: "MvvmMessenger.dll";              DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 Source: "PresentationFramework.Aero.dll"; DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
-Source: "D:\My Projects\Visual Studio 2019\DeviceHub\Documents\ASCOM Device Hub User and Technical Information.pdf"; DestDir: "{app}\{#MyDestSubdirName}";
+Source: "D:\My Projects\Visual Studio 2019\ASCOMDeviceHub\Documents\ASCOM Device Hub User and Technical Information.pdf"; DestDir: "{app}\{#MyDestSubdirName}";
 Source: "ASCOM.DeviceHub.pdb";            DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 Source: "MvvmMessenger.pdb";              DestDir: "{app}\{#MyDestSubdirName}"; Flags: ignoreversion
 

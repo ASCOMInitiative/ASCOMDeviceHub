@@ -129,7 +129,6 @@
     </None>
     <None Include="TelescopeDriverDiagram.cd" />
     <Resource Include="Images\ASCOM.ico" />
-    <Content Include="ReadMe.htm" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

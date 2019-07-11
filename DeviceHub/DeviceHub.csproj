@@ -494,7 +494,6 @@
     <Resource Include="Images\icon rotate left.png" />
     <Resource Include="Images\icon rotate right.png" />
     <Resource Include="Images\icon up arrow.png" />
-    <Content Include="ReadMe.htm" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ASCOM.ico" />

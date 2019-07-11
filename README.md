@@ -1,2 +1,0 @@
-# ASCOMDeviceHub
-ASCOM Device Hub

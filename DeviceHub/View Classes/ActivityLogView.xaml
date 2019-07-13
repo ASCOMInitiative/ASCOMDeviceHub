@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib"
         mc:Ignorable="d"
         Background="{DynamicResource WindowBackgroundBrush}"
-        Title="Device Hub Activity Log" MinHeight="540" MinWidth="480"  Height="540" Width="480" WindowStyle="ThreeDBorderWindow" Loaded="Window_Loaded" LocationChanged="Window_LocationChanged" Icon="/ASCOM.DeviceHub;component/Images/ASCOM.ico" SizeChanged="Window_SizeChanged" >
+        Title="Device Hub Activity Log" MinHeight="540" MinWidth="480"  Height="540" Width="480" WindowStyle="ThreeDBorderWindow" Loaded="Window_Loaded" LocationChanged="Window_LocationChanged" Icon="/ASCOM.DeviceHub;component/Images/ASCOM.ico" SizeChanged="Window_SizeChanged" ResizeMode="CanResizeWithGrip" >
     <Window.Resources>
         <Style x:Key="DevLabel" TargetType="{x:Type Label}">
             <Setter Property="HorizontalAlignment" Value="Left" />
@@ -86,7 +87,11 @@
                  Background="{DynamicResource MenuBackgroundBrush}" Foreground="White" BorderBrush="White"
                  HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" TargetUpdated="TextBox_TargetUpdated"
                  Text="{Binding LogContents, Mode=OneWay, NotifyOnTargetUpdated=True}" UndoLimit="0"  />
-        <Label Grid.Row="4" Grid.Column="0" Content="{Binding MemoryUsage, FallbackValue=1.000}" ContentStringFormat="Memory Usage: {0:F3} MB" Style="{StaticResource DevLabel}" Grid.ColumnSpan="2" Margin="0,25" />
+        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource DevLabel}" Grid.ColumnSpan="2" Margin="0,25">
+            <Label.Content>
+                <TextBlock Text="{Binding MemoryUsage, FallbackValue=Memory Usage: 1 MB, StringFormat=Memory Usage: {0:F3} MB, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
+            </Label.Content>
+        </Label>
         <Button Grid.Row="4" Grid.Column="2" Content="Close" HorizontalAlignment="Right" Height="60" Width="60" Margin="0,6,0,0" Style="{StaticResource CircleButton}"
                     Command="{Binding CloseLogCommand}" />
     </Grid>

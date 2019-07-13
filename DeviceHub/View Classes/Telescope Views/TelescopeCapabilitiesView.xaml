@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib"
              xmlns:local="clr-namespace:ASCOM.DeviceHub"
              mc:Ignorable="d" 
 			 Background="{DynamicResource WindowBackgroundBrush}"
@@ -28,15 +29,15 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="46" />
+                                <ColumnDefinition Width="56" />
                                 <ColumnDefinition Width="20" />
-                                <ColumnDefinition Width="46" />
+                                <ColumnDefinition Width="56" />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" TextAlignment="Right"
-														Text="{Binding Minimum, StringFormat=0.00000}" />
+														Text="{Binding Minimum, StringFormat=0.00000, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
                             <TextBlock Grid.Column="1" TextAlignment="Center" Text="-" />
                             <TextBlock Grid.Column="2" TextAlignment="Left"
-														Text="{Binding Maximum, StringFormat=0.00000}" />
+														Text="{Binding Maximum, StringFormat=0.00000, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
                         </Grid>
                     </DataTemplate>
                 </Setter.Value>

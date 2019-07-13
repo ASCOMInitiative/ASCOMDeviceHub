@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib"
              xmlns:local="clr-namespace:ASCOM.DeviceHub"
              mc:Ignorable="d" 
 			 Background="{DynamicResource WindowBackgroundBrush}"
@@ -228,7 +229,7 @@
 
 					<local:DoubleEntryBox Grid.Row="1" Height="22" Width="80" HorizontalAlignment="Left" Style="{StaticResource SlewValue}" 
 										  Minimum="0" Maximum="24" IsMaximumInclusive="False" TabIndex="3" 
-										  Text="{Binding TargetRightAscension, StringFormat=F5, UpdateSourceTrigger=LostFocus}"								
+										  Text="{Binding TargetRightAscension, StringFormat=F5, UpdateSourceTrigger=LostFocus, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}"								
 										  Visibility="{Binding UseDecimalHours, Converter={StaticResource BoolVisConverter}}" />
 				</Grid>
 
@@ -263,7 +264,7 @@
 
 					<local:DoubleEntryBox Grid.Row="1" Height="22" Width="80" HorizontalAlignment="Left" Style="{StaticResource SlewValue}" 
 										  Minimum="-90" Maximum="90" IsMaximumInclusive="False"
-										  Text="{Binding TargetDeclination, StringFormat=F5, UpdateSourceTrigger=LostFocus}" 
+										  Text="{Binding TargetDeclination, StringFormat=F5, UpdateSourceTrigger=LostFocus, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" 
 										  Visibility="{Binding UseDecimalHours, Converter={StaticResource BoolVisConverter}}" TabIndex="4" />
 				</Grid>
 			</Grid>
@@ -310,7 +311,7 @@
 
 					<local:DoubleEntryBox Grid.Row="1" Height="22" Width="80" HorizontalAlignment="Left" Style="{StaticResource SlewValue}" 
 										  Minimum="0" Maximum="360" IsMaximumInclusive="False"
-										  Text="{Binding TargetAzimuth, StringFormat=F5, UpdateSourceTrigger=LostFocus}"								
+										  Text="{Binding TargetAzimuth, StringFormat=F5, UpdateSourceTrigger=LostFocus, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}"								
 										  Visibility="{Binding UseDecimalHours, Converter={StaticResource BoolVisConverter}}" />
 				</Grid>
 
@@ -345,7 +346,7 @@
 
 					<local:DoubleEntryBox Grid.Row="1" Height="22" Width="80" HorizontalAlignment="Left" Style="{StaticResource SlewValue}" 
 										  Minimum="0" Maximum="90" IsMaximumInclusive="True"
-										  Text="{Binding TargetAltitude, StringFormat=F5, UpdateSourceTrigger=LostFocus}" 
+										  Text="{Binding TargetAltitude, StringFormat=F5, UpdateSourceTrigger=LostFocus, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" 
 										  Visibility="{Binding UseDecimalHours, Converter={StaticResource BoolVisConverter}}" />
 				</Grid>
 			</Grid>

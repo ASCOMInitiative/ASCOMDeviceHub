@@ -3,6 +3,7 @@
 			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib"
 			 xmlns:local="clr-namespace:ASCOM.DeviceHub"
 			 mc:Ignorable="d" 
 			 Background="{DynamicResource WindowBackgroundBrush}"
@@ -54,14 +55,14 @@
 		<Label Grid.Row="2" Grid.Column="0" Content="RA Offset Rate:" HorizontalAlignment="Right" VerticalAlignment="Center" 
 			   Margin="0,8,4,8" Style="{StaticResource RateLabel}" />
 		<local:DoubleEntryBox Grid.Row="2" Grid.Column="1" Height="22" Width="76" Margin="6" HorizontalAlignment="Left"  VerticalAlignment="Center" 
-							 Text="{Binding RaOffsetRate, StringFormat=F5}" 
+							 Text="{Binding RaOffsetRate, StringFormat=F5, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" 
 							 IsEnabled="{Binding CanChangeOffsetRate}"/>
 		<Label Grid.Row="2" Grid.Column="2" Content="arc-seconds / hour" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource RateLabel}" Margin="6,0"/>
 
 		<Label Grid.Row="3" Grid.Column="0" Content="Dec Offset Rate:" HorizontalAlignment="Right" VerticalAlignment="Center" 
 			   Margin="0,8,4,8" Style="{StaticResource RateLabel}" />
 		<local:DoubleEntryBox Grid.Row="3" Grid.Column="1" Height="22" Width="76" Margin="6" HorizontalAlignment="Left" VerticalAlignment="Center" 
-							 Text="{Binding DecOffsetRate, StringFormat=F5}" 
+							 Text="{Binding DecOffsetRate, StringFormat=F5, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" 
 							 IsEnabled="{Binding CanChangeOffsetRate}" />
 		<Label Grid.Row="3" Grid.Column="2" Content="arc-seconds / hour" HorizontalAlignment="Left" VerticalAlignment="Center" Style="{StaticResource RateLabel}" Margin="6,0" />
 

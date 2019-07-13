@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib"
              xmlns:local="clr-namespace:ASCOM.DeviceHub"
              mc:Ignorable="d" 
    	         Background="{DynamicResource WindowBackgroundBrush}"
@@ -45,9 +46,12 @@
 				<Slider Width="120" Minimum="-10" Maximum="10" TickFrequency="0.5" IsSnapToTickEnabled="True" VerticalAlignment="Center" 
 						IsEnabled="{Binding Status.Connected, FallbackValue=False}"
 						Value="{Binding TemperatureOffset}" />
-				<Label Foreground="{DynamicResource NormalTextBrush}" VerticalAlignment="Center" Width="30"
-					   Content="{Binding TemperatureOffset, StringFormat=F1, FallbackValue=0.0}" />
-				<Button Content="Save" Height="40" Width="40" VerticalAlignment="Center" Padding="3" Style="{StaticResource CircleButton}"
+                <Label Foreground="{DynamicResource DynamicTextBrush}" VerticalAlignment="Center" Width="30">
+                    <Label.Content>
+                        <TextBlock Text="{Binding TemperatureOffset, StringFormat=F1, FallbackValue=0, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
+                    </Label.Content>
+                </Label>
+                <Button Content="Save" Height="40" Width="40" VerticalAlignment="Center" Padding="3" Style="{StaticResource CircleButton}"
 						IsEnabled="{Binding Status.Connected, FallbackValue=False}" 
 						Command="{Binding SaveOffsetCommand}" />
 			</StackPanel>

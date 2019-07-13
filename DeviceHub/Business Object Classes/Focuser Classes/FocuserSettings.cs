@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Globalization;
 using ASCOM.Utilities;
 
 namespace ASCOM.DeviceHub
@@ -25,7 +25,8 @@ namespace ASCOM.DeviceHub
 			{
 				profile.DeviceType = "Focuser";
 				focuserID = profile.GetValue( DriverID, _focuserIDProfileName, String.Empty, _focuserIDDefault );
-				temperatureOffset = Convert.ToDouble( profile.GetValue( DriverID, _temperatureOffsetProfileName, String.Empty, _temperatureOffsetDefault ) );
+				temperatureOffset = Convert.ToDouble( profile.GetValue( DriverID, _temperatureOffsetProfileName, String.Empty, _temperatureOffsetDefault ), CultureInfo.InvariantCulture );
+
 				loggerEnabled = Convert.ToBoolean( profile.GetValue( DriverID, _traceStateProfileName, String.Empty, _traceStateDefault ) );
 			}
 
@@ -52,7 +53,7 @@ namespace ASCOM.DeviceHub
 			{
 				profile.DeviceType = "Focuser";
 				profile.WriteValue( DriverID, _focuserIDProfileName, FocuserID );
-				profile.WriteValue( DriverID, _temperatureOffsetProfileName, TemperatureOffset.ToString() );
+				profile.WriteValue( DriverID, _temperatureOffsetProfileName, TemperatureOffset.ToString(CultureInfo.InvariantCulture) );
 				profile.WriteValue( DriverID, _traceStateProfileName, IsLoggingEnabled.ToString() );
 			}
 		}

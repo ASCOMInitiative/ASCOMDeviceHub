@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:gl="clr-namespace:System.Globalization;assembly=mscorlib"
              xmlns:local="clr-namespace:ASCOM.DeviceHub"
              mc:Ignorable="d" 
    	         Background="{DynamicResource WindowBackgroundBrush}"
@@ -151,10 +152,13 @@
 					   Content="{Binding Status.ShutterPosition}" />
 
 				<Label Grid.Row="3" Grid.Column="0" Content="Azimuth:" Style="{StaticResource StateLabel}" />
-				<Label Grid.Row="3" Grid.Column="1" Style="{StaticResource StateValue}"
-								   Content="{Binding Status.Azimuth}" ContentStringFormat="F1" />
+                <Label Grid.Row="3" Grid.Column="1" Style="{StaticResource StateValue}">
+                    <Label.Content>
+                        <TextBlock Text="{Binding Status.Azimuth, StringFormat=F1, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
+                    </Label.Content>
+                </Label>
 
-				<StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
 					<Label Content="Slewing" Foreground="{DynamicResource EmphasisTextBrush}" VerticalAlignment="Center" Margin="3,0" Padding="0" 
 									   Visibility="{Binding IsSlewing, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource BoolVisConverter},ConverterParameter={x:Static Visibility.Hidden}, FallbackValue=Hidden}" />
 					<Label Content="Parking" Foreground="{DynamicResource EmphasisTextBrush}"  VerticalAlignment="Center" Margin="3,0" Padding="0" 
@@ -176,7 +180,7 @@
 						<Label Content="Azimuth:" Style="{StaticResource StateLabel}"/>
 						<local:DoubleEntryBox Minimum="0" Maximum="360" IsMaximumInclusive="False" Margin="3,6"
 											  Height="24" Width="60" VerticalAlignment="Center"
-											  Text="{Binding DirectTargetAzimuth, StringFormat=F1}" />
+											  Text="{Binding DirectTargetAzimuth, StringFormat=F1, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
 						<Button Height="50" Width="50" Content="Go To" Style="{StaticResource CircleButton}"
 									Command="{Binding GotoDirectAzimuthCommand}" />
 						<Button Height="50" Width="50" Style="{StaticResource CircleButton}"
@@ -209,15 +213,18 @@
 					<Label Content="Dome Azimuth Adjustment:" Style="{StaticResource StateLabel}" VerticalAlignment="Center" />
 					<Slider Width="100" Minimum="-20" Maximum="20" TickFrequency="0.5" IsSnapToTickEnabled="True"
 							Value="{Binding DomeAzimuthAdjustment}" />
-					<Label Style="{StaticResource StateValue}"
-						   Content="{Binding DomeAzimuthAdjustment, FallbackValue=0}" ContentStringFormat="F1" />
-				</StackPanel>
+                    <Label Style="{StaticResource StateValue}">
+                        <Label.Content>
+                            <TextBlock Text="{Binding DomeAzimuthAdjustment, FallbackValue=0, StringFormat=F1, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
+                        </Label.Content>
+                    </Label>
+                </StackPanel>
 				<GroupBox Grid.Row="2" Header="Sync Azimuth" HorizontalAlignment="Left" Width="238" Margin="8,-2,0,0" Grid.ColumnSpan="2">
 					<StackPanel Grid.Row="1" Orientation="Horizontal">
 						<Label Content="Azimuth:" Style="{StaticResource StateLabel}" />
 						<local:DoubleEntryBox Minimum="0" Maximum="360" IsMaximumInclusive="False" Margin="6,1"
 											  Height="22" Width="80" VerticalAlignment="Center"
-												  Text="{Binding SyncTargetAzimuth, StringFormat=F1}" />
+											  Text="{Binding SyncTargetAzimuth, StringFormat=F1, ConverterCulture={x:Static gl:CultureInfo.CurrentCulture}}" />
 						<Button Content="Sync" Height="34" Width="34" Style="{StaticResource CircleButton}" Margin="0,-2,0,0"
 									Command="{Binding SyncAzimuthCommand}"/>
 					</StackPanel>

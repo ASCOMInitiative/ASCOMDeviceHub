@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Globalization;
 using ASCOM.Utilities;
 
 namespace ASCOM.DeviceHub
@@ -47,9 +47,9 @@ namespace ASCOM.DeviceHub
 			{
 				profile.DeviceType = "Dome";
 				domeID = profile.GetValue( DriverID, _domeIDProfileName, String.Empty, _domeIDDefault );
-				layoutXOffset = Convert.ToDouble( profile.GetValue( DriverID, _xOffsetProfileName, String.Empty, _offsetDefault ) );
-				layoutYOffset = Convert.ToDouble( profile.GetValue( DriverID, _yOffsetProfileName, String.Empty, _offsetDefault ) );
-				layoutZOffset = Convert.ToDouble( profile.GetValue( DriverID, _zOffsetProfileName, String.Empty, _offsetDefault ) );
+				layoutXOffset = Convert.ToDouble( profile.GetValue( DriverID, _xOffsetProfileName, String.Empty, _offsetDefault ), CultureInfo.InvariantCulture );
+				layoutYOffset = Convert.ToDouble( profile.GetValue( DriverID, _yOffsetProfileName, String.Empty, _offsetDefault ), CultureInfo.InvariantCulture );
+				layoutZOffset = Convert.ToDouble( profile.GetValue( DriverID, _zOffsetProfileName, String.Empty, _offsetDefault ), CultureInfo.InvariantCulture );
 				domeRadius = Convert.ToInt32( profile.GetValue( DriverID, _radiusProfileName, String.Empty, _radiusDefault ) );
 				gemAxisOffset = Convert.ToInt32( profile.GetValue( DriverID, _gemAxisOffsetProfileName, String.Empty, _gemAxisOffsetDefault ) );
 				azimuthAccuracy = Convert.ToInt32( profile.GetValue( DriverID, _azimuthAccuracyProfileName, String.Empty, _azimuthAccuracyDefault ) );

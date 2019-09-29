@@ -66,9 +66,9 @@ namespace ASCOM.DeviceHub
 			// Uncomment the following lines to allow the Visual Studio Debugger to be 
 			// attached to the server for debugging.
 
-			int procId = Process.GetCurrentProcess().Id;
-			string msg = String.Format( "Attach the debugger to process #{0} now.", procId );
-			MessageBox.Show( msg );
+			//int procId = Process.GetCurrentProcess().Id;
+			//string msg = String.Format( "Attach the debugger to process #{0} now.", procId );
+			//MessageBox.Show( msg );
 
 			Globals.UISyncContext = TaskScheduler.FromCurrentSynchronizationContext();
 

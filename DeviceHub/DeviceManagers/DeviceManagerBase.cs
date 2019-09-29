@@ -81,16 +81,23 @@ namespace ASCOM.DeviceHub
 
 					ITrackingRates rates = retval as ITrackingRates;
 
-					foreach ( DriveRates rate in rates )
+					if ( rates == null )
 					{
-						DriveRates tempRate = rate;
-
-						if ( sb.Length > 0 )
+						sb.Append( " Did not return expected ITrackingRates collection!" );
+					}
+					else
+					{
+						foreach ( DriveRates rate in rates )
 						{
-							sb.Append( ", " );
-						}
+							DriveRates tempRate = rate;
 
-						sb.Append( tempRate.ToString() );
+							if ( sb.Length > 0 )
+							{
+								sb.Append( ", " );
+							}
+
+							sb.Append( tempRate.ToString() );
+						}
 					}
 
 					LogActivityEnd( ActivityMessageTypes.Parameters, sb.ToString() );

@@ -145,7 +145,7 @@ namespace ASCOM.DeviceHub
 
 					//string message = String.Format( "{0}\r\n{1}", DomeManager.ConnectError, DomeManager.ConnectException.Message );
 					//ShowMessage( message, "Dome Connection Error" );
-					string message = "No error but did not connect!";
+					string message = "Use the Activity Log to view any errors!";
 
 					if ( DomeManager.ConnectException != null )
 					{

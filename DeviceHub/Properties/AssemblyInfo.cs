@@ -2,6 +2,8 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 
+using ASCOM.DeviceHub;
+
 // General Information about an assembly is controlled through the following
 // set of attributes. 
 
@@ -27,5 +29,7 @@ using System.Windows;
 											  //(used if a resource is not found in the page,
 											  // app, or any theme specific resource dictionaries)
 )]
+
+[assembly: AssemblyGuid("56463757-10FA-4BA8-8548-E98936723CDA")]
 
 // Other assembly attributes are in the common ProductAssemblyInfo file.

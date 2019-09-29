@@ -205,7 +205,7 @@ namespace ASCOM.DeviceHub
 				{
 					// Init default message.
 
-					string message = "No error but did not connect!";
+					string message = "Use the Activity Log to view any errors!";
 
 					if ( TelescopeManager.ConnectException != null )
 					{

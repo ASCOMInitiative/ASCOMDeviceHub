@@ -8,6 +8,7 @@ using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+
 using Microsoft.Win32;
 
 using ASCOM.DeviceHub.MvvmMessenger;
@@ -65,9 +66,9 @@ namespace ASCOM.DeviceHub
 			// Uncomment the following lines to allow the Visual Studio Debugger to be 
 			// attached to the server for debugging.
 
-			//int procId = Process.GetCurrentProcess().Id;
-			//string msg = String.Format( "Attach the debugger to process #{0} now.", procId );
-			//MessageBox.Show( msg );
+			int procId = Process.GetCurrentProcess().Id;
+			string msg = String.Format( "Attach the debugger to process #{0} now.", procId );
+			MessageBox.Show( msg );
 
 			Globals.UISyncContext = TaskScheduler.FromCurrentSynchronizationContext();
 
@@ -450,11 +451,11 @@ namespace ASCOM.DeviceHub
 			} );
 		}
 
-		#endregion Helper Methods
+        #endregion Helper Methods
 
-		#region Dynamic Driver Assembly Loader
+        #region Dynamic Driver Assembly Loader
 
-		private static void LoadComObjectAssemblies()
+        private static void LoadComObjectAssemblies()
 		{
 			_comObjectAssys = new List<Assembly>();
 			_comObjectTypes = new List<Type>();

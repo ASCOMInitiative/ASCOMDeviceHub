@@ -36,30 +36,35 @@ namespace ASCOM.DeviceHub
 
 			List<TrackingRateItem> temp = new List<TrackingRateItem>();
 
-			foreach ( DriveRates rate in mgr.TrackingRates )
+			ITrackingRates rates = mgr.TrackingRates;
+
+			if ( rates != null )
 			{
-				string name = "";
-
-				switch ( rate )
+				foreach ( DriveRates rate in rates )
 				{
-					case DriveRates.driveKing:
-						name = "King";
-						break;
+					string name = "";
 
-					case DriveRates.driveLunar:
-						name = "Lunar";
-						break;
+					switch ( rate )
+					{
+						case DriveRates.driveKing:
+							name = "King";
+							break;
 
-					case DriveRates.driveSidereal:
-						name = "Sidereal";
-						break;
+						case DriveRates.driveLunar:
+							name = "Lunar";
+							break;
 
-					case DriveRates.driveSolar:
-						name = "Solar";
-						break;
+						case DriveRates.driveSidereal:
+							name = "Sidereal";
+							break;
+
+						case DriveRates.driveSolar:
+							name = "Solar";
+							break;
+					}
+
+					temp.Add( new TrackingRateItem( name, rate ) );
 				}
-
-				temp.Add( new TrackingRateItem( name, rate ) );
 			}
 
 			TrackingRates = temp.ToArray();

@@ -52,7 +52,7 @@ namespace ASCOM.DeviceHub
 		{
 			bool retval;
 
-			if ( !Service.DeviceCreated )
+			if ( Service == null || !Service.DeviceCreated )
 			{
 				if ( throwException )
 				{

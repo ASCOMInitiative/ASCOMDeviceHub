@@ -141,7 +141,7 @@ namespace ASCOM.DeviceHub
 				{
 					// No exception, but did not connect!
 
-					string message = "No error but did not connect!";
+					string message = "Use the Activity Log to view any errors!";
 
 					if ( FocuserManager.ConnectException != null )
 					{

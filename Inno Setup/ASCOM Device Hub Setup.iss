@@ -4,7 +4,7 @@
 ;
 
 #define MyAppName "ASCOM.DeviceHub"
-#define MyAppVersion "6.4.1.2"
+#define MyAppVersion "6.4.1.3"
 #define MyDestSubdirName "ASCOM.DeviceHub"
 
 [Setup]
@@ -18,6 +18,7 @@ AppUpdatesURL=https://ascom-standards.org/
 VersionInfoVersion=1.0.0
 MinVersion=0,5.0.2195sp4
 DefaultDirName="{cf}\ASCOM\Telescope"
+DefaultGroupName=ASCOM Device Hub
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 OutputDir="{#SourcePath}\Output"
@@ -52,6 +53,7 @@ Source: "MvvmMessenger.pdb";              DestDir: "{app}\{#MyDestSubdirName}"; 
 
 [Icons]
 Name: "{commondesktop}\ASCOM Device Hub"; Filename: "{app}\{#MyDestSubdirName}\ASCOM.DeviceHub.exe"; WorkingDir: "{app}\{#MyDestSubdirName}"
+Name: "{commonprograms}\ASCOM Device Hub"; Filename: "{app}\{#MyDestSubdirName}\ASCOM.DeviceHub.exe"; WorkingDir: "{app}\{#MyDestSubdirName}"
 
 ; Only if driver is .NET
 [Run]

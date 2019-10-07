@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Inno Setup/Output/ASCOM.DeviceHub(6.4.1.2)_setup.exe
+/Inno Setup/Output

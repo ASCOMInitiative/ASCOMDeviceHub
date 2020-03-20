@@ -34,7 +34,7 @@ namespace ASCOM.DeviceHub
 	// Your driver's DeviceID is ASCOM.DeviceHub.Focuser
 
 	// The Guid attribute sets the CLSID for ASCOM.DeviceHub.Focuser
-	// The ClassInterface/None addribute prevents an empty interface called
+	// The ClassInterface/None attribute prevents an empty interface called
 	// _DeviceHub from being created and used as the [default] interface
 
 	/// <summary>
@@ -277,7 +277,7 @@ namespace ASCOM.DeviceHub
 
 		public void Dispose()
 		{
-			// Clean up the tracelogger and util objects
+			// Clean up the trace logger and util objects
 			_logger.Enabled = false;
 			_logger.Dispose();
 			_logger = null;
@@ -309,7 +309,16 @@ namespace ASCOM.DeviceHub
 					if ( value )
 					{
 						msg += String.Format( " (connecting to {0})", FocuserManager.FocuserID );
-						ConnectedState = FocuserManager.Connect();
+
+						// Do this on the U/I thread.
+
+						Task task = new Task(() =>
+						{
+							ConnectedState = FocuserManager.Connect();
+						});
+
+						task.Start(Globals.UISyncContext);
+						task.Wait();
 					}
 					else
 					{
@@ -519,7 +528,16 @@ namespace ASCOM.DeviceHub
 					if ( value )
 					{
 						msg += String.Format( " (connecting to {0})", FocuserManager.FocuserID );
-						ConnectedState = FocuserManager.Connect();
+
+						// Do this on the U/I thread.
+
+						Task task = new Task(() =>
+						{
+							ConnectedState = FocuserManager.Connect();
+						});
+
+						task.Start(Globals.UISyncContext);
+						task.Wait();
 					}
 					else
 					{

@@ -36,7 +36,7 @@ namespace ASCOM.DeviceHub
 	// Your driver's DeviceID is ASCOM.DeviceHub.Telescope
 	//
 	// The Guid attribute sets the CLSID for ASCOM.DeviceHub.Telescope
-	// The ClassInterface/None addribute prevents an empty interface called
+	// The ClassInterface/None attribute prevents an empty interface called
 	// _DeviceHub from being created and used as the [default] interface
 	//
 
@@ -314,7 +314,16 @@ namespace ASCOM.DeviceHub
 					if ( value )
 					{
 						msg += String.Format( " (connecting to {0})", TelescopeManager.TelescopeID );
-						ConnectedState = TelescopeManager.Connect();
+
+						// Do this on the U/I thread.
+
+						Task task = new Task(() =>
+						{
+							ConnectedState = TelescopeManager.Connect();
+						});
+
+						task.Start( Globals.UISyncContext );
+						task.Wait();
 					}
 					else
 					{
@@ -1392,7 +1401,7 @@ namespace ASCOM.DeviceHub
 
 			try
 			{
-				retval = TelescopeManager.DestinationSideOfPier( rightAscension, declination );
+				retval = TelescopeManager.GetTargetSideOfPier( rightAscension, declination );
 				msg += String.Format( "{0}{1}", retval, _done );
 			}
 			catch ( Exception )

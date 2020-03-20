@@ -7,7 +7,7 @@
 // of the application settings xml file.
 
 [assembly: AssemblyCompany( "The ASCOM Initiative" )]
-[assembly: AssemblyCopyright( "Copyright ©  2019" )]
+[assembly: AssemblyCopyright( "Copyright © 2020" )]
 [assembly: AssemblyTrademark( "" )]
 
 // Version information for an assembly consists of the following four values:
@@ -20,5 +20,5 @@
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion( "6.4.1.3" )]
-[assembly: AssemblyFileVersion( "6.4.1.3" )]
+[assembly: AssemblyVersion( "6.4.1.4" )]
+[assembly: AssemblyFileVersion( "6.4.1.4" )]

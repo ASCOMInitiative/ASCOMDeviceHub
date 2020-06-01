@@ -781,7 +781,17 @@ namespace ASCOM.DeviceHub
 			try
 			{
 				CheckDevice();
-				retval = Service.AxisRates( axis );
+
+				if ( Service.CanMoveAxis( axis ))
+				{
+					retval = Service.AxisRates( axis );
+				}
+				else
+				{
+					IRate[] rateArr = new IRate[0];
+					retval = new ScopeAxisRates( rateArr );
+				}
+
 				msg += Done;
 			}
 			catch (Exception ex )

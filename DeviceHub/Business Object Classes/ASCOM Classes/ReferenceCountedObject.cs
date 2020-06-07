@@ -1,4 +1,6 @@
 using System.Runtime.InteropServices;
+using System.Windows;
+
 using ASCOM.DeviceInterface;
 
 namespace ASCOM.DeviceHub

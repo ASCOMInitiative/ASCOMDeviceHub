@@ -12,6 +12,7 @@ using System.Windows;
 using Microsoft.Win32;
 
 using ASCOM.DeviceHub.MvvmMessenger;
+using System.Runtime;
 
 namespace ASCOM.DeviceHub
 {
@@ -439,17 +440,6 @@ namespace ASCOM.DeviceHub
 			GCTokenSource.Dispose();
 			GCTokenSource = null;
 		}
-
-		//private static void WaitForGarbageCollectionToStop()
-		//{
-		//	Task task = Task.Run( () =>
-		//	{
-		//		while ( GCTask != null && GCTask.IsCanceled )
-		//		{
-		//			Thread.Sleep( 250 );
-		//		}
-		//	} );
-		//}
 
         #endregion Helper Methods
 

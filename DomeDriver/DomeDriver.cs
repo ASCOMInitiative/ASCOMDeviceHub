@@ -1111,7 +1111,9 @@ namespace ASCOM.DeviceHub
 
 			try
 			{
-				DomeManager.SlewDomeShutter( altitude );
+				//DomeManager.SlewDomeShutter( altitude );
+
+				DomeManager.SlewToAltitude( altitude );
 				msg += _done;
 			}
 			catch ( Exception )

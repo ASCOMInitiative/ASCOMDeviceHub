@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using ASCOM.DeviceInterface;
+using ASCOM.DriverAccess;
 using ASCOM.Utilities;
 
 namespace ASCOM.DeviceHub

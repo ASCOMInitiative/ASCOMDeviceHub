@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-
 using ASCOM.DeviceInterface;
 
 namespace ASCOM.DeviceHub

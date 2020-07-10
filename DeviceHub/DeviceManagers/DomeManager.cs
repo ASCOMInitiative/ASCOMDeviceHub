@@ -7,8 +7,6 @@ using ASCOM.DeviceInterface;
 using ASCOM.Astrometry.Transform;
 
 using ASCOM.DeviceHub.MvvmMessenger;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 
 namespace ASCOM.DeviceHub
 {

@@ -6,7 +6,6 @@ using ASCOM.DeviceInterface;
 
 using ASCOM.DeviceHub;
 using ASCOM.DeviceHub.MvvmMessenger;
-using System.Diagnostics;
 
 namespace Unit_Tests.Dome
 {
@@ -236,7 +235,6 @@ namespace Unit_Tests.Dome
 			while ( _mgr.Status.Slewing )
 			{
 				Thread.Sleep( 500 );
-				Debug.WriteLine( "Looping" );
 			}
 
 			Assert.IsFalse( _mgr.Status.Slewing );

@@ -15,6 +15,8 @@ namespace ASCOM.DeviceHub
 			SuppressTrayBubble = Globals.SuppressTrayBubble;
 			UseCustomTheme = Globals.UseCustomTheme;
 			UseExpandedScreenLayout = Globals.UseExpandedScreenLayout;
+			KeepWindowOnTop = Globals.AlwaysOnTop;
+			UseCompositeSlewingFlag = Globals.UseCompositeSlewingFlag;
 
 			TelescopeSetupVm = new TelescopeSetupViewModel();
 			DomeSetupVm = new DomeSetupViewModel();
@@ -71,6 +73,36 @@ namespace ASCOM.DeviceHub
 			}
 		}
 
+		private bool _keepWindowOnTop;
+
+		public bool KeepWindowOnTop
+		{
+			get { return _keepWindowOnTop; }
+			set
+			{
+				if ( value != _keepWindowOnTop )
+				{
+					_keepWindowOnTop = value;
+					OnPropertyChanged();
+				}
+			}
+		}
+
+
+		private bool _useCompositeSlewingFlag;
+
+		public bool UseCompositeSlewingFlag
+		{
+			get { return _useCompositeSlewingFlag; }
+			set
+			{
+				if ( value != _useCompositeSlewingFlag )
+				{
+					_useCompositeSlewingFlag = value;
+					OnPropertyChanged();
+				}
+			}
+		}
 		private bool _isTelescopeActive;
 
 		public bool IsTelescopeActive
@@ -186,6 +218,9 @@ namespace ASCOM.DeviceHub
 		{
 			Globals.SuppressTrayBubble = SuppressTrayBubble;
 			Globals.UseCustomTheme = UseCustomTheme;
+			Globals.AlwaysOnTop = KeepWindowOnTop;
+			Globals.UseCompositeSlewingFlag = UseCompositeSlewingFlag;
+
 			AppSettingsManager.SaveAppSettings();
 		}
 

@@ -162,7 +162,8 @@
     </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)DeviceHub\$(OutDir)$(TargetFileName)"</PostBuildEvent>
+    <PostBuildEvent>copy "$(TargetPath)" "$(SolutionDir)DeviceHub\$(OutDir)$(TargetFileName)"
+copy "$(TargetDir)$(TargetName).pdb" "$(SolutionDir)DeviceHub\$(OutDir)$(TargetName).pdb"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,7 +4,7 @@
 ;
 
 #define MyAppName "ASCOM.DeviceHub"
-#define MyAppVersion "6.5.0.1"
+#define MyAppVersion "6.5.1.1"
 #define MyDestSubdirName "DeviceHub"
 #define MyPlatformRoot "D:\Github Repos\ASCOMPlatform\"
 

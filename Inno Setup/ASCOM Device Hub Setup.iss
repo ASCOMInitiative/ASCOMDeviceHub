@@ -4,10 +4,10 @@
 ;
 
 #define MyAppName "ASCOM.DeviceHub"
-#define MyAppVersion "6.5.1.1"
+#define MyAppVersion "6.5.1.2"
 #define MyDestSubdirName "DeviceHub"
 ; #define MyPlatformRoot "D:\Github Repos\ASCOMPlatform\"
-#define MyPlatformRoot "D:\My Projects\Visual Studio 2019\"
+#define MyPlatformRoot "D:\My Projects\Visual Studio 2019\Ascom\"
 
 [Setup]
 AppID={{94c74c75-8747-48e2-9100-736565caf056}

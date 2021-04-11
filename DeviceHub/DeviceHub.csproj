@@ -106,10 +106,12 @@
       <Link>ProductAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Business Object Classes\AssemblyGuidAttribute.cs" />
+    <Compile Include="Business Object Classes\DisplayAttribute.cs" />
     <Compile Include="Business Object Classes\Message Types\DomeSlavedChangedMessage.cs" />
     <Compile Include="Business Object Classes\Value Converters\BooleanOnOffConverter.cs" />
     <Compile Include="Business Object Classes\Telescope Classes\TelescopeRates.cs" />
     <Compile Include="Business Object Classes\Value Converters\MultiBooleanVisibilityConverter.cs" />
+    <Compile Include="Resources\Strings.Designer.cs" />
     <Compile Include="View Classes\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
@@ -284,7 +286,7 @@
     <Compile Include="Business Object Classes\Telescope Classes\JogRate.cs" />
     <Compile Include="Business Object Classes\Telescope Classes\JogRates.cs" />
     <Compile Include="Services Classes\Interfaces\IActivityLogService.cs" />
-    <Compile Include="Resources\Strings.Designer.cs">
+    <Compile Include="Services Classes\Resources\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
@@ -459,7 +461,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Strings.resx">
+    <EmbeddedResource Include="Resources\Strings.resx" />
+    <EmbeddedResource Include="Services Classes\Resources\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>

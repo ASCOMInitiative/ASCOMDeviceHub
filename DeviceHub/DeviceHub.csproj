@@ -105,6 +105,7 @@
     <Compile Include="..\ProductAssemblyInfo.cs">
       <Link>ProductAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Business Object Classes\ASCOM Classes\GarbageCollection.cs" />
     <Compile Include="Business Object Classes\AssemblyGuidAttribute.cs" />
     <Compile Include="Business Object Classes\DisplayAttribute.cs" />
     <Compile Include="Business Object Classes\Message Types\DomeSlavedChangedMessage.cs" />
@@ -286,15 +287,10 @@
     <Compile Include="Business Object Classes\Telescope Classes\JogRate.cs" />
     <Compile Include="Business Object Classes\Telescope Classes\JogRates.cs" />
     <Compile Include="Services Classes\Interfaces\IActivityLogService.cs" />
-    <Compile Include="Services Classes\Resources\Strings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
     <Compile Include="Business Object Classes\Value Converters\RightAscensionValueConverter.cs" />
     <Compile Include="Business Object Classes\Value Converters\DeviceConnectedValueConverter.cs" />
-    <Compile Include="Business Object Classes\Telescope Classes\SlewDirection.cs" />
-    <Compile Include="Business Object Classes\Telescope Classes\SlewAmount.cs" />
+    <Compile Include="Business Object Classes\Telescope Classes\JogDirection.cs" />
+    <Compile Include="Business Object Classes\Telescope Classes\JogAmount.cs" />
     <Compile Include="Business Object Classes\Telescope Classes\TelescopeSlewAmounts.cs" />
     <Compile Include="Business Object Classes\Value Converters\SideOfPierStringConverter.cs" />
     <Compile Include="DeviceManagers\TelescopeManagerAccess.cs" />
@@ -435,7 +431,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Business Object Classes\ASCOM Classes\ClassFactory.cs" />
-    <Compile Include="Business Object Classes\ASCOM Classes\GarbageCollection.cs" />
     <Compile Include="Business Object Classes\ASCOM Classes\LocalServer.cs" />
     <Compile Include="View Classes\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -462,10 +457,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Strings.resx" />
-    <EmbeddedResource Include="Services Classes\Resources\Strings.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="ASCOM.snk" />
     <None Include="TelescopeControlClasses.cd" />
     <None Include="Properties\Settings.settings">

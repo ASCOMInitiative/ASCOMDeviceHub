@@ -20,7 +20,7 @@ AppUpdatesURL=https://ascom-standards.org/
 VersionInfoVersion=1.0.0
 MinVersion=0,5.0.2195sp4
 DefaultDirName="{cf}\ASCOM\DeviceHub"
-DefaultGroupName=ASCOM Device Hub
+DefaultGroupName=ASCOM Platform 6
 DisableDirPage=yes
 DisableProgramGroupPage=yes
 OutputDir="{#SourcePath}\Output"
@@ -78,7 +78,7 @@ Filename: "{app}\ASCOM.DeviceHub.exe"; Parameters: "/unregister"
 
 [Code]
 const
-   REQUIRED_PLATFORM_VERSION = 6.4;    // Set this to the minimum required ASCOM Platform version for this application
+   REQUIRED_PLATFORM_VERSION = 6.5;    // Set this to the minimum required ASCOM Platform version for this application
    REQUIRED_DOTNET_VERSION = 4.6;
 
 //

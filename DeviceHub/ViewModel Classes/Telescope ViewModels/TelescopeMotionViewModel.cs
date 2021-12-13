@@ -629,7 +629,7 @@ namespace ASCOM.DeviceHub
 
 				MessageBoxResult result = msgSvc.Show( text, title, MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No, MessageBoxOptions.None );
 
-				if ( result != MessageBoxResult.Yes )
+				if ( result != MessageBoxResult.OK )
 				{
 					return;
 				}

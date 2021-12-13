@@ -30,6 +30,8 @@ namespace Unit_Tests.Telescope
 		{
 			ServiceContainer.Instance.ClearAllServices();
 			ServiceContainer.Instance.AddService<ITelescopeService>( new MockTelescopeService() );
+			Globals.UISyncContext = TaskScheduler.Default;
+
 			_mgr = TelescopeManager.Instance;
 			_svc = (MockTelescopeService)ServiceContainer.Instance.GetService<ITelescopeService>();
 			TelescopeManager.Instance.SetFastUpdatePeriod( 0.5 );
@@ -37,8 +39,6 @@ namespace Unit_Tests.Telescope
 			Assert.AreEqual( true, retval );
 
 			Thread.Sleep( _startupDelayMs );
-
-			Globals.UISyncContext = TaskScheduler.Default;
 		}
 
 		[TestCleanup]
@@ -324,13 +324,16 @@ namespace Unit_Tests.Telescope
 
 			_mgr.BeginSlewToCoordinatesAsync( targetRaDec.X, targetRaDec.Y );
 
-			while( _mgr.Slewing )
+			while ( _mgr.Slewing )
 			{
 				Thread.Sleep( 1000 );
 			}
 
-			Assert.AreEqual( _svc.MockRaDec.X, targetRaDec.X, _tolerance );
-			Assert.AreEqual( _svc.MockRaDec.Y, targetRaDec.Y, _tolerance );
+			if ( !Double.IsNaN( _svc.MockRaDec.X ) || !Double.IsNaN( targetRaDec.X ) )
+			{
+				Assert.AreEqual( _svc.MockRaDec.X, targetRaDec.X, _tolerance );
+				Assert.AreEqual( _svc.MockRaDec.Y, targetRaDec.Y, _tolerance );
+			}
 		}
 
 		[TestMethod]

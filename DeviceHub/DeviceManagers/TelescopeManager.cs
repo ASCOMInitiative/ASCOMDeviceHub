@@ -614,6 +614,11 @@ namespace ASCOM.DeviceHub
 
 		public void StartMeridianFlip()
 		{
+			if ( Parameters.AlignmentMode != AlignmentModes.algGermanPolar )
+			{
+				throw new InvalidOperationException( "Only German Equatorial telescopes can perform a meridian flip." );
+			}
+
 			// Change the Side of the Pier
 
 			double ra = Status.RightAscension;
@@ -685,11 +690,16 @@ namespace ASCOM.DeviceHub
 
 		public PierSide GetTargetSideOfPier( double rightAscension, double declination )
 		{
-			PierSide retval = DestinationSideOfPier( rightAscension, declination );
+			PierSide retval = PierSide.pierUnknown;
 
-			if ( retval == PierSide.pierUnknown )
+			if ( Parameters.AlignmentMode == AlignmentModes.algGermanPolar )
 			{
-				// Unable to get side-of-pier from the mount so we need to simulate it.
+				retval = DestinationSideOfPier( rightAscension, declination );
+			}
+
+			if ( retval == PierSide.pierUnknown && Parameters.AlignmentMode == AlignmentModes.algGermanPolar )
+			{
+				// Unable to get side-of-pier for this German Equatorial Mount so we need to simulate it.
 
 				double hourAngle = AstroUtils.ConditionHA( Status.SiderealTime - rightAscension );
 				PierSide currentSOP = Status.SideOfPier;

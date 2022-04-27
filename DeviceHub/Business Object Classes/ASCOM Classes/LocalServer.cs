@@ -312,42 +312,45 @@ namespace ASCOM.DeviceHub
 		{
 			Task discon = new Task( () =>
 			{
-				if ( _scopesInUse == 1 && StartedByCOM )
-				{
-					TelescopeManager.Instance.Disconnect();
-				}
+				// The device manager desides whether to disconnect.
+
+				TelescopeManager.Instance.Disconnect();
 			} );
 
 			discon.Start( Globals.UISyncContext );
 			discon.Wait();
+
+			GC.Collect();
 		}
 
 		public static void DisconnectDomeIf()
 		{
 			Task discon = new Task( () =>
 			{
-				if ( _domesInUse == 1 && StartedByCOM )
-				{
-					DomeManager.Instance.Disconnect();
-				}
+				// The device manager desides whether to disconnect.
+
+				DomeManager.Instance.Disconnect();
 			} );
 
 			discon.Start( Globals.UISyncContext );
 			discon.Wait();
+
+			GC.Collect();
 		}
 
 		public static void DisconnectFocuserIf()
 		{
 			Task discon = new Task( () =>
 			{
-				if ( _focusersInUse == 1 && StartedByCOM )
-				{
-					FocuserManager.Instance.Disconnect();
-				}
+				// The device manager desides whether to disconnect.
+
+				FocuserManager.Instance.Disconnect();
 			} );
 
 			discon.Start( Globals.UISyncContext );
 			discon.Wait();
+
+			GC.Collect();
 		}
 
 		#endregion Server Lock, Object Counting, and AutoQuit on COM startup

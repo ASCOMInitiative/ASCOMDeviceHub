@@ -22,6 +22,7 @@ namespace ASCOM.DeviceHub
 
 			Messenger.Default.Register<ObjectCountMessage>( this, ( action ) => UpdateObjectsCount( action ) );
 			Messenger.Default.Register<FocuserIDChangedMessage>( this, ( action ) => FocuserIDChanged( action ) );
+			Messenger.Default.Register<DeviceDisconnectedMessage>( this, ( action ) => DeviceDisconnected( action ) );
 			RegisterStatusUpdateMessage( true );
 
 		}
@@ -202,12 +203,14 @@ namespace ASCOM.DeviceHub
 
 		private void DisconnectFocuser()
 		{
+			// This is only called from the U/I
+
 			IsConnected = false;
 
 			try
 			{
 				SignalWait( true );
-				FocuserManager.Disconnect();
+				FocuserManager.Disconnect( true );
 			}
 			finally
 			{
@@ -226,6 +229,13 @@ namespace ASCOM.DeviceHub
 			}, CancellationToken.None, TaskCreationOptions.None, Globals.UISyncContext );
 		}
 
+		private void DeviceDisconnected( DeviceDisconnectedMessage action )
+		{
+			if ( action.DeviceType == DeviceTypeEnum.Focuser )
+			{
+				IsConnected = false;
+			}
+		}
 		#endregion Helper Methods
 
 		#region Relay Commands

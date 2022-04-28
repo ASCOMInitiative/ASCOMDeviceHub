@@ -33,6 +33,7 @@ namespace ASCOM.DeviceHub
 		private const string _uacRegistryKey = "Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System";
 		private const string _uacRegistryValue = "EnableLUA";
 
+		private static GarbageCollection GarbageCollector {get; set;}
 
 		private static MainWindow MainWindow { get; set; }          // Reference to the main view
 		private static MainWindowViewModel ViewModel { get; set; }  // Reference to the main view model
@@ -320,7 +321,7 @@ namespace ASCOM.DeviceHub
 			discon.Start( Globals.UISyncContext );
 			discon.Wait();
 
-			GC.Collect();
+			ForceGarbageCollection();
 		}
 
 		public static void DisconnectDomeIf()
@@ -335,7 +336,7 @@ namespace ASCOM.DeviceHub
 			discon.Start( Globals.UISyncContext );
 			discon.Wait();
 
-			GC.Collect();
+			ForceGarbageCollection();
 		}
 
 		public static void DisconnectFocuserIf()
@@ -350,7 +351,7 @@ namespace ASCOM.DeviceHub
 			discon.Start( Globals.UISyncContext );
 			discon.Wait();
 
-			GC.Collect();
+			ForceGarbageCollection();
 		}
 
 		#endregion Server Lock, Object Counting, and AutoQuit on COM startup
@@ -433,10 +434,10 @@ namespace ASCOM.DeviceHub
 		{
 			// Start up the garbage collection thread.
 
-			GarbageCollection garbageCollector = new GarbageCollection( interval );
+			GarbageCollector = new GarbageCollection( interval );
 
 			GCTokenSource = new CancellationTokenSource();
-			GCTask = Task.Factory.StartNew( () => garbageCollector.GCWatch( GCTokenSource.Token ),
+			GCTask = Task.Factory.StartNew( () => GarbageCollector.GCWatch( GCTokenSource.Token ),
 											GCTokenSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default );
 		}
 
@@ -447,6 +448,15 @@ namespace ASCOM.DeviceHub
 			GCTask = null;
 			GCTokenSource.Dispose();
 			GCTokenSource = null;
+			GarbageCollector = null;
+		}
+
+		private static void ForceGarbageCollection()
+		{
+			if ( GCTask != null && GarbageCollector != null )
+			{
+				GarbageCollector.ForceGCNow();
+			}
 		}
 
         #endregion Helper Methods

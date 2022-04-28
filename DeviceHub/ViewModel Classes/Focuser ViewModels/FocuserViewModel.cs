@@ -233,9 +233,13 @@ namespace ASCOM.DeviceHub
 		{
 			if ( action.DeviceType == DeviceTypeEnum.Focuser )
 			{
-				IsConnected = false;
+				Task.Factory.StartNew( () =>
+				{
+					IsConnected = false;
+				}, CancellationToken.None, TaskCreationOptions.None, Globals.UISyncContext );
 			}
 		}
+
 		#endregion Helper Methods
 
 		#region Relay Commands

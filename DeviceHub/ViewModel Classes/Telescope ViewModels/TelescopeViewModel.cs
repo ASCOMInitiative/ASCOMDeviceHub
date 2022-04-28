@@ -309,7 +309,10 @@ namespace ASCOM.DeviceHub
 		{
 			if ( action.DeviceType == DeviceTypeEnum.Telescope )
 			{
-				IsConnected = false;
+				Task.Factory.StartNew( () =>
+				{
+					IsConnected = false;
+				}, CancellationToken.None, TaskCreationOptions.None, Globals.UISyncContext );
 			}
 		}
 

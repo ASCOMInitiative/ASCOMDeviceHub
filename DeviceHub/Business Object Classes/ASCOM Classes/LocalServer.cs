@@ -145,11 +145,10 @@ namespace ASCOM.DeviceHub
 
 			AppSettingsManager.LoadMainWindowSettings();
 
-			// Create the View and ViewModel
+			// Create the View
 
 			Logger.LogMessage( logId, "Creating the main view" );
 
-			ViewModel = new MainWindowViewModel();
 			MainWindow = new MainWindow();
 
 			// Create the U/I services.
@@ -157,6 +156,10 @@ namespace ASCOM.DeviceHub
 			Logger.LogMessage( logId, "Injecting the user interface services" );
 
 			ServiceInjector.InjectUIServices( MainWindow );
+
+			// Create the ViewModel
+
+			ViewModel = new MainWindowViewModel();
 
 			Logger.LogMessage( logId, "Setting the data context for the main view" );
 

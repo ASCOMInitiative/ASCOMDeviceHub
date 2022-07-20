@@ -33,6 +33,7 @@ namespace ASCOM.DeviceHub
 				if ( _instance == null )
 				{
 					_instance = new TelescopeManager();
+					throw new Exception( "Unable to instantiate the TelescopeManager!" );
 				}
 
 				return _instance;

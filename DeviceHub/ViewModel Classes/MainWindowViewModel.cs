@@ -216,12 +216,24 @@ namespace ASCOM.DeviceHub
 
 			_showSetupCommand = null;
 			_showLogCommand = null;
-			TelescopeVm.Dispose();
-			TelescopeVm = null;
-			DomeVm.Dispose();
-			DomeVm = null;
-			FocuserVm.Dispose();
-			FocuserVm = null;
+
+			if ( TelescopeVm != null )
+			{
+				TelescopeVm.Dispose();
+				TelescopeVm = null;
+			}
+
+			if ( DomeVm != null )
+			{
+				DomeVm.Dispose();
+				DomeVm = null;
+			}
+
+			if ( FocuserVm != null )
+			{
+				FocuserVm.Dispose();
+				FocuserVm = null;
+			}
 
 			if ( SetupVm != null )
 			{

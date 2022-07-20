@@ -1084,11 +1084,16 @@ namespace ASCOM.DeviceHub
 						retval = false;
 
 						break;
+					case "-enableapplogging":
+					case @"/enableapplogging":
+						Logger.LogMessage( msgId, "Enabling application startup logging." );
+						Globals.ForceAppLogging = true;
+						break;
 
 					default:
 						string msg = $"Unknown argument: {args[0]}";
 						Logger.LogMessage( msgId, msg );
-						msg += "\nValid are : -register, -unregister, unregister_full, and -embedding";
+						msg += "\nValid are : -register, -unregister, unregister_full, -embedding, and -enableapplogging";
 						string caption = GetAssemblyTitle();
 						MessageBox.Show( msg, caption, MessageBoxButton.OK, MessageBoxImage.Exclamation );
 

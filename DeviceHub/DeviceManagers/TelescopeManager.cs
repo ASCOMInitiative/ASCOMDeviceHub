@@ -43,9 +43,23 @@ namespace ASCOM.DeviceHub
 
 		static TelescopeManager()
 		{
+			string caller = "TelescopeManager static ctor";
 			TelescopeID = "";
+			LogAppMessage( "Initialization started.", caller );
 
-			AstroUtils = new AstroUtils();
+			try
+			{
+				LogAppMessage( "Creating AstroUtils instance", caller );
+
+				AstroUtils = new AstroUtils();
+			}
+			catch (Exception xcp)
+			{
+				string msg = $"Unable to create an instance of AstroUtils. Details follow:\r\n\r\n{xcp}";
+				LogAppMessage( msg, "TelescopeManager static constructor" );
+			}
+
+			LogAppMessage( "Initialization complete", caller );
 		}
 
 		public static void SetTelescopeID( string id )
@@ -93,6 +107,9 @@ namespace ASCOM.DeviceHub
 		private TelescopeManager()
 			: base( DeviceTypeEnum.Telescope )
 		{
+			string caller = "TelescopeManager instance ctor";
+			LogAppMessage( "Initializing Instance constructor", caller );
+
 			IsConnected = false;
 			Capabilities = null;
 			Parameters = null;
@@ -105,6 +122,8 @@ namespace ASCOM.DeviceHub
 			PollingChange = new ManualResetEvent( false );
 
 			PreviousSlewInProgressMessage = new SlewInProgressMessage( false );
+
+			LogAppMessage( "Instance constructor initialization complete.", caller );
 		}
 
 		#endregion Instance Constructor

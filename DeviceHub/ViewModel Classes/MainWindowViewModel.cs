@@ -76,7 +76,7 @@ namespace ASCOM.DeviceHub
 				sb.Append( "Please contact the ASCOM Support Team for assistance." );
 				ShowMessage( sb.ToString(), "Fatal Device Hub Startup Error", MessageBoxButton.OK, MessageBoxImage.Error );
 
-				Application.Current.Shutdown();
+				throw;
 			}
 
 			LogAppMessage( "Setting the active device to Telescope", caller );
@@ -95,7 +95,7 @@ namespace ASCOM.DeviceHub
 			Messenger.Default.Register<ObjectCountMessage>( this, ( action ) => UpdateObjectsCount( action ) );
 
 			LogAppMessage( "Application Initializaiton is complete.", caller );
-
+			Globals.CloseAppLogger();
 		}
 
 		#region Public Properties

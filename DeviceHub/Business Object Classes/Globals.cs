@@ -90,5 +90,36 @@ namespace ASCOM.DeviceHub
 				return _appLogger;
 			}
 		}
+
+		public static double ConditionHA( double ha )
+		{
+			double lowerBound = -12.0;
+			double upperBound = 12.0;
+			double range = upperBound - lowerBound;
+
+			double retval = ha;
+
+			while ( retval < lowerBound )
+			{
+				retval += range;
+			}
+
+			while ( retval > upperBound )
+			{
+				retval -= range;
+			}
+
+			return retval;
+		}
+
+		public static void CloseAppLogger()
+		{
+			if ( _appLogger != null )
+			{
+				_appLogger.Enabled = false;
+				_appLogger.Dispose();
+				_appLogger = null;
+			}
+		}
 	}
 }

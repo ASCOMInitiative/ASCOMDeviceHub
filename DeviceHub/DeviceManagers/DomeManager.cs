@@ -401,6 +401,7 @@ namespace ASCOM.DeviceHub
 			if ( Connected )
 			{
 				AbortSlew();
+				SetSlavedState( false );
 				Status = new DevHubDomeStatus( this );
 			}
 		}

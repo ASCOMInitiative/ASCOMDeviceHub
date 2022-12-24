@@ -182,11 +182,12 @@ end;
 function InitializeSetup(): Boolean;
 var
    PlatformVersionNumber : double;
+   RequiredPlatformVersion := REQUIRED_PLATFORM_VERSION;
  begin
    result := FALSE;  // Assume failure
 
    PlatformVersionNumber := PlatformVersion(); // Get the installed Platform version as a double
-   If PlatformVersionNumber >= REQUIRED_PLATFORM_VERSION then	// Check whether we have the minimum required Platform or newer
+   If PlatformVersionNumber >= RequiredPlatformVersion then	// Check whether we have the minimum required Platform or newer
       result := TRUE
    else
    begin

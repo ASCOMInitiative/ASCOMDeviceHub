@@ -4,7 +4,7 @@
 ;
 
 #define MyAppName "ASCOM.DeviceHub"
-#define MyAppVersion "6.6.1.1"
+#define MyAppVersion "6.6.1.2"
 #define MyDestSubdirName "DeviceHub"
 ; #define MyPlatformRoot "D:\Github Repos\ASCOMPlatform\"
 #define MyPlatformRoot "D:\My Projects\Visual Studio 2022\Ascom\"
@@ -182,8 +182,9 @@ end;
 function InitializeSetup(): Boolean;
 var
    PlatformVersionNumber : double;
-   RequiredPlatformVersion := REQUIRED_PLATFORM_VERSION;
+   RequiredPlatformVersion : double;
  begin
+   RequiredPlatformVersion := REQUIRED_PLATFORM_VERSION;
    result := FALSE;  // Assume failure
 
    PlatformVersionNumber := PlatformVersion(); // Get the installed Platform version as a double

@@ -765,11 +765,11 @@ namespace ASCOM.DeviceHub
 				LogActivityLine( ActivityMessageTypes.Commands
 								, "Synchronizing dome to target altitude of {0:f2} degrees.", targetAltitude );
 
-				//Task task = Task.Run( () =>
-				//{
-				//	SlewToAltitude( targetAltitude );
-				//}, CancellationToken.None );
-				SlewToAzimuth( targetAltitude );
+                //Task task = Task.Run( () =>
+                //{
+                //	SlewToAltitude( targetAltitude );
+                //}, CancellationToken.None );
+                SlewToAltitude( targetAltitude );
 				moving = true;
 			}
 

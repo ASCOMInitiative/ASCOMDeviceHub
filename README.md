@@ -1,6 +1,6 @@
 *** NOTE May 2025 ***
 
-The code in this repository is not longer mainbtained. Device Hub is now integrated in the Platform 7 build and the latest Device Hub code can be found in the fork located in the [ASCOM Platform repository](https://github.com/ASCOMInitiative/ASCOMPlatform/tree/main/Drivers%20and%20Simulators/ASCOM%20Device%20Hub/DeviceHub).
+The code in this repository is not longer maintained. Device Hub is now integrated in the Platform 7 build and the latest Device Hub code can be found in the fork located in the [ASCOM Platform repository](https://github.com/ASCOMInitiative/ASCOMPlatform/tree/main/Drivers%20and%20Simulators/ASCOM%20Device%20Hub/DeviceHub).
 
 This repository contains the source code for the ASCOM Device Hub application. Device Hub provides the ability to use the ASCOM Platform and conforming drivers to control a telescope, a dome, and a focuser. This is similar to the venerable POTH Hub tool. The Device Hub also provides itself as a local server for a telescope, a dome, and a focuser.
 
